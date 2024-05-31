@@ -12,7 +12,7 @@ export default function useUserList() {
         const response = await fetch('https://reqres.in/api/users?page=1');
         if (!response.ok)
           throw new Error(
-            `Fetch error: ${response.status}, ${response.statusText}`,
+            `Fetch error: ${response.status} - ${response.statusText}`,
           );
 
         if (!ignore) {
