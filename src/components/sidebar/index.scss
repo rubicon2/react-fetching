@@ -2,4 +2,14 @@
 
 .sidebar {
   background-color: vars.$light-grey;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
 }
