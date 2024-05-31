@@ -2,8 +2,9 @@ import useFetch from '../../hooks/useFetch';
 import './index.scss';
 
 export default function Sidebar() {
-  const { data, loading, error } = useFetch(
+  const { json, loading, error } = useFetch(
     'https://reqres.in/api/users?page=1',
+    5000,
   );
 
   if (loading)
@@ -22,6 +23,7 @@ export default function Sidebar() {
       </div>
     );
 
+  const { data } = json;
   return (
     <div className="sidebar container">
       <h2 className="section-title">Users</h2>

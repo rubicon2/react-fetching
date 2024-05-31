@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import asyncTimer from '../asyncTimer';
 
-  const [data, setData] = useState(null);
 export default function useFetch(url, maxDelayMillis = 0, options = {}) {
+  const [json, setJson] = useState(null);
   const [error, setError] = useState(null);
-  const loading = error === null && data === null;
+  const loading = error === null && json === null;
 
   useEffect(() => {
     let ignore = false;
@@ -20,7 +20,7 @@ export default function useFetch(url, maxDelayMillis = 0, options = {}) {
 
         if (!ignore) {
           const json = await response.json();
-          setData(json.data);
+          setJson(json);
         }
       } catch (error) {
         setError(error.message);
@@ -33,5 +33,5 @@ export default function useFetch(url, maxDelayMillis = 0, options = {}) {
     return () => (ignore = true);
   }, [url, options]);
 
-  return { data, loading, error };
+  return { json, loading, error };
 }
