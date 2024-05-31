@@ -1,13 +1,14 @@
 import './App.scss';
+import InfoDisplay from './components/infoDisplay';
+import Sidebar from './components/sidebar';
 
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <h1 className="text-centered app-title">Some App</h1>
+      <div className="grid-1-5">
+        <Sidebar />
+        <InfoDisplay />
       </div>
     </>
   );

@@ -1,10 +1,45 @@
+@use './mixins';
+
+*,
+*::before,
+*::after {
+  // outline: 1px dotted red;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-1-5 {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.container {
+  padding: 1rem;
+}
+
+.grid-1-5 > * {
+  flex: 1;
+}
+
+.text-centered {
   text-align: center;
 }
 
-.card {
-  padding: 2em;
+.app-title {
+  // Be consistent with container padding
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.459);
+  @include mixins.std-shadow;
+}
+
+.section-title {
+  margin-top: 0;
 }
