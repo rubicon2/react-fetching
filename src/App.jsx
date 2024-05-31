@@ -1,6 +1,6 @@
-import './App.scss';
 import InfoDisplay from './components/infoDisplay';
 import Sidebar from './components/sidebar';
+import './App.scss';
 
 function App() {
   return (
