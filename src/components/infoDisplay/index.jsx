@@ -4,7 +4,7 @@ import NestedThing from '../nestedThing';
 export default function InfoDisplay() {
   const { json, loading, error } = useFetch(
     'https://reqres.in/api/users/1',
-    10000,
+    5000,
   );
 
   const nestedData = useFetch(
