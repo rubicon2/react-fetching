@@ -1,8 +1,10 @@
-import useUserList from '../../hooks/useUserList';
+import useFetch from '../../hooks/useFetch';
 import './index.scss';
 
 export default function Sidebar() {
-  const { data, loading, error } = useUserList();
+  const { data, loading, error } = useFetch(
+    'https://reqres.in/api/users?page=1',
+  );
 
   if (loading)
     return (

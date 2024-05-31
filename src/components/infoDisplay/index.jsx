@@ -1,7 +1,7 @@
-import useUser from '../../hooks/useUser';
+import useFetch from '../../hooks/useFetch';
 
 export default function InfoDisplay() {
-  const { data, loading, error } = useUser();
+  const { data, loading, error } = useFetch('https://reqres.in/api/users/1');
 
   if (loading) {
     return (

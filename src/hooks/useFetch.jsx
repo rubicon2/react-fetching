@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 
-export default function useUserList() {
+export default function useFetch(url, options = {}) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const loading = data === null && error === null;
+  const loading = error === null && data === null;
 
   useEffect(() => {
     let ignore = false;
     const getData = async () => {
       try {
-        const response = await fetch('https://reqres.in/api/users?page=1');
+        const response = await fetch(url, options);
         if (!response.ok)
           throw new Error(
             `Fetch error: ${response.status} - ${response.statusText}`,
@@ -28,7 +28,7 @@ export default function useUserList() {
     getData();
 
     return () => (ignore = true);
-  }, []);
+  }, [url, options]);
 
   return { data, loading, error };
 }
