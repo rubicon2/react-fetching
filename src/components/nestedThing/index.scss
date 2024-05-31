@@ -1,0 +1,9 @@
+.nested-thing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  &--item {
+    width: calc(25% - 0.75rem);
+  }
+}

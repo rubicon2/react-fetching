@@ -1,4 +1,5 @@
 import useFetch from '../../hooks/useFetch';
+import NestedThing from '../nestedThing';
 
 export default function InfoDisplay() {
   const { json, loading, error } = useFetch(
@@ -6,12 +7,17 @@ export default function InfoDisplay() {
     10000,
   );
 
+  const nestedData = useFetch(
+    'https://jsonplaceholder.typicode.com/comments',
+    0,
+  );
 
   if (loading) {
     return (
       <div className="info-display container">
         <h2 className="section-title">Info Display</h2>
         <p>Loading...</p>
+        <NestedThing fetchData={nestedData} />
       </div>
     );
   }
@@ -31,6 +37,7 @@ export default function InfoDisplay() {
         {json.data.first_name} {json.data.last_name}
       </h2>
       <img src={json.data.avatar} alt="" />
+      <NestedThing fetchData={nestedData} />
     </div>
   );
 }
