@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import asyncTimer from '../asyncTimer';
 
-export default function useFetch(url, options = {}) {
   const [data, setData] = useState(null);
+export default function useFetch(url, maxDelayMillis = 0, options = {}) {
   const [error, setError] = useState(null);
   const loading = error === null && data === null;
 
@@ -11,7 +11,7 @@ export default function useFetch(url, options = {}) {
     const getData = async () => {
       try {
         // Add a random delay so we can actually see the components in their loading state... internet is too fast!
-        await asyncTimer(Math.random() * 5000);
+        await asyncTimer(Math.random() * maxDelayMillis);
         const response = await fetch(url, options);
         if (!response.ok)
           throw new Error(
